@@ -2,348 +2,7 @@
 
 @section('title')
 
-    <!--Style css-->
-    <style>
-        h1 {
-            margin: 0 auto;
-            margin-top: 5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .image-preview-container {
-            width: 100%;
-            margin: 0 auto;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 3rem;
-            border-radius: 20px;
-        }
-
-        .image-preview-container img {
-            width: 100%;
-            display: none;
-
-            margin-bottom: 15px;
-        }
-
-        .image-preview-container input {
-            display: none;
-        }
-
-        .image-preview-container label {
-            display: block;
-            width: 75%;
-            height: 45px;
-            margin-left: 12%;
-            text-align: center;
-            background: #E9DAC1;
-            color: #fff;
-            font-size: 15px;
-            text-transform: Uppercase;
-            font-weight: 400;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-preview-container-second {
-            width: 100%;
-            margin: 0 auto;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 3rem;
-            border-radius: 20px;
-        }
-
-        .image-preview-container-second img {
-            width: 100%;
-            display: none;
-            margin-bottom: 30px;
-        }
-
-
-        .image-preview-container-second input {
-            display: none;
-        }
-
-        .image-preview-container-second label {
-            display: block;
-            width: 50%;
-            height: 45px;
-            margin-left: 25%;
-            text-align: center;
-            background: #E9DAC1;
-            color: #fff;
-            font-size: 20px;
-            text-transform: Uppercase;
-            font-weight: 400;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card-body {
-            background-color: #ffffff;
-
-        }
-
-        #resetbtn,
-        #resetbtn2 {
-            display: block;
-            width: 50%;
-            height: 45px;
-            margin-left: 25%;
-            text-align: center;
-            color: #fff;
-            font-size: 15px;
-            text-transform: Uppercase;
-            font-weight: 400;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .row {
-            margin-bottom: 20px;
-        }
-
-
-        .box {
-            width: 100%;
-            height: 8vh;
-            margin-bottom: 15px;
-            margin-top: 10px;
-            background-color: #ffffff;
-        }
-
-        .box input {
-            width: 100%;
-            height: 80%;
-            border-radius: 10px;
-            border: solid 1px #242424;
-            outline: none;
-            padding: 15px;
-            font-size: 16px;
-            background-color: #ffffff;
-        }
-
-        .box select {
-            width: 100%;
-            height: 80%;
-            border-radius: 10px;
-            border: solid 1px #242424;
-            outline: none;
-            padding: 15px;
-            font-size: 18px;
-            background-color: #ffffff;
-        }
-
-        span.select2-selection.select2-selection--single {
-            width: 100%;
-            height: 80%;
-            border-radius: 10px;
-            border: solid 1px #242424;
-            outline: none;
-            padding: 15px;
-            font-size: 18px;
-            background-color: #ffffff;
-        }
-
-        span.select2-selection__arrow {
-            margin-top: 13px;
-        }
-
-
-        .box button {
-            width: 100%;
-            height: 90%;
-            border-radius: 10px;
-            border: solid 1px #242424;
-            outline: none;
-            padding: 15px;
-            font-size: 18px;
-            background-color: #ffffff;
-        }
-
-        button.btn.dropdown-toggle.btn-light {
-            background-color: #ffffff;
-        }
-
-        div.dropdown-menu.show {
-            background-color: #ffffff;
-        }
-
-        .inner.show {
-            background-color: #ffffff;
-        }
-
-        .box textarea {
-            width: 100%;
-            height: 130%;
-            border-radius: 10px;
-            border: solid 1px #242424;
-            outline: none;
-            padding: 15px;
-            font-size: 17px;
-            background-color: #ffffff;
-        }
-
-        #ProThai {
-            position: absolute;
-            width: 190px;
-            top: -3px;
-            left: 8%;
-            margin: 0px;
-            background-color: #ffffff;
-            padding: 0 10px;
-            font-weight: 600;
-        }
-
-        #ProEng {
-            position: absolute;
-            width: 209px;
-            top: -3px;
-            left: 8%;
-            margin: 1px;
-            background-color: #ffffff;
-            padding: 0 10px;
-            font-weight: 600;
-        }
-
-        #CompanyF {
-            position: absolute;
-            width: 64px;
-            top: -3px;
-            left: 8%;
-            margin: 1px;
-            background-color: #ffffff;
-            padding: 0 10px;
-            font-weight: 600;
-        }
-
-        #AdvisorF {
-            position: absolute;
-            width: 140px;
-            top: -3px;
-            left: 8%;
-            margin: 1px;
-            background-color: #ffffff;
-            padding: 0 10px;
-            font-weight: 600;
-        }
-
-        #FieldF {
-            position: absolute;
-            width: 60px;
-            top: -3px;
-            left: 8%;
-            margin: 1px;
-            background-color: #ffffff;
-            padding: 0 10px;
-            font-weight: 600;
-        }
-
-        #TypeF {
-            position: absolute;
-            width: 77px;
-            top: -3px;
-            left: 4%;
-            margin: 0px;
-            background-color: #ffffff;
-            padding: 0 10px;
-            font-weight: 600;
-        }
-
-        #DescF {
-            position: absolute;
-            width: 160px;
-            top: -3px;
-            left: 4%;
-            margin: 0px;
-            background-color: #ffffff;
-            padding: 0 10px;
-            font-weight: 600;
-        }
-
-
-        #pro_advisor,
-        #pro_company,
-        #pro_field,
-        #pro_descript,
-        #pro_type {
-            width: 100%;
-        }
-
-        tbody {
-            padding: 0%;
-        }
-
-        .edit-icon {
-            color: #000000;
-            /* สีของ Icon */
-            cursor: pointer;
-            /* ทำให้เป็น Cursor Pointer เมื่อผู้ใช้เอาเมาส์ไปชี้ที่ Icon */
-        }
-
-        #example1 {
-            background-color: #ffffff;
-            /* เปลี่ยนสีตามที่คุณต้องการ */
-        }
-
-        /* เปลี่ยนสีขอบของตาราง */
-        #example1 th {
-            border-color: #585858;
-            border-top-width: 1px;
-            border-bottom-width: 1px;
-            /* เปลี่ยนสีตามที่คุณต้องการ */
-        }
-
-
-        /* เปลี่ยนสีพื้นหลังของ header ของตาราง */
-        #example1 thead {
-            background-color: #ffffff;
-            /* เปลี่ยนสีตามที่คุณต้องการ */
-            color: rgb(0, 0, 0);
-            /* เปลี่ยนสีตัวอักษรใน header ตามที่คุณต้องการ */
-        }
-
-
-        /* ปรับสีขอบของ Pagination */
-        #example1_paginate .paginate_button {
-            border-radius: 20px;
-            margin: 0 2px;
-            /* กำหนดระยะห่างระหว่างปุ่ม */
-        }
-
-
-        /* ปรับสีของ Text และ Icon */
-        #example1_paginate .paginate_button.current,
-        #example1_paginate .paginate_button:hover {
-            color: #fff;
-            /* เปลี่ยนสี Text */
-        }
-
-        /* ปรับขนาดของ Text และ Icon */
-        #example1_paginate .paginate_button.current,
-        #example1_paginate .paginate_button:hover {
-            font-size: 14px;
-            /* ปรับขนาด Text */
-        }
-
-        /* ปรับขนาดของ Dropdown แสดงหน้าที่ */
-        #example1_paginate .paginate_button .page-link {
-            background-color: rgb(50, 50, 50);
-            color: #ffffff;
-            font-size: 14px;
-            /* ปรับขนาด Text */
-        }
-    </style>
-    <!--Style css-->
+    <link rel="stylesheet" type="text/css" href="{{ url('/style/style.css') }}" />
 
 @section('content')
 
@@ -382,19 +41,10 @@
                 $(".js-example-tags").select2({
                     tags: true
                 });
+
             });
 
-            // Wait for the document to be fully loaded
-            document.addEventListener("DOMContentLoaded", function() {
-                // Add an event listener to the majorButton
-                document.getElementById('majorButton').addEventListener('click', function() {
-                    // Handle the button click event (you can add your custom logic here)
-                    alert('Button Clicked!');
-                });
-            });
-
-        };
-
+        }
 
         const previewImage = (event, imageNumber, uploadLabelId, resetBtnId) => {
             const imageFiles = event.target.files;
@@ -441,47 +91,136 @@
             resetBtn.style.display = 'none';
         }
     </script>
-    <!--Javascript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('confirmAdd').addEventListener('click', function() {
+                // เก็บค่าข้อมูลที่ต้องการส่งไปยังเซิร์ฟเวอร์
+                let formData = new FormData(document.querySelector('form'));
 
+                // ส่งข้อมูลผ่าน AJAX
+                fetch('{{ route('users.store') }}', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error('Network response was not ok.');
+                    })
+                    .then(data => {
+                        // ดำเนินการหลังจากที่รับข้อมูล response จากเซิร์ฟเวอร์
+                        console.log(data);
+                        // เปิดใช้งานเพื่อปิด modal
+                        $('#adduser').modal('hide');
+                        // รีเฟรชหน้าเพื่อดึงข้อมูลใหม่
+                        location.reload();
+                    })
+                    .catch(error => {
+                        console.error('There has been a problem with your fetch operation:', error);
+                    });
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $('.toggle-class').change(function() {
+                var user_permission = $(this).prop('checked') == true ? 1 : 0;
+                var user_id = $(this).data('user_id');
+
+
+                // แสดงค่า user_id ใน console
+                console.log('User ID:', user_id);
+                // ตรวจสอบว่าคุณกำหนด URL ของ route ให้ถูกต้อง
+                var url = "{{ route('changeStatus') }}"; // ให้แก้ชื่อ route ตามที่คุณตั้งไว้ในไฟล์ web.php
+
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: url, // ใช้ตัวแปร url ที่เรากำหนดไว้
+                    data: {
+                        'user_permission': user_permission,
+                        'user_id': user_id,
+                        '_token': '{{ csrf_token() }}'
+                    },
+                    success: function(data) {
+                        console.log(data.success);
+                        // ดำเนินการเพิ่มเติมหากต้องการ
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        console.log('User ID:', user_id);
+                        // แสดงข้อความผิดพลาดหรือดำเนินการเพิ่มเติมตามที่เหมาะสม
+                    }
+                });
+            });
+
+        });
+    </script>
+
+    <!--Javascript-->
 
     <!--DataTable-->
     <br>
     <div class="container">
         <!-- /.card -->
         <div class="card">
-            <div class="card-body"
-                style="padding-top:20px;padding-left:20px;padding-right:20px;padding-bottom:20px;border-radius:50px">
-                <h1 class="card-title" style="font-size:medium">จัดการผู้ใช้งาน</h1>
-                <br>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col align-self-start" style ="text-align:start">
+                        <div class="h2" style="padding-top: 0px; margin-bottom: 0%">ผู้ใช้งาน</div>
+                    </div>
+                    <div class="col align-self-end" style ="text-align:right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#adduser">เพิ่มผู้ใช้งาน</button>
+
+                    </div>
+                </div>
                 <hr>
                 <table id="example1" class="table">
                     <thead>
-                        <tr style="text-align: center">
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Major</th>
-                            <th>Action</th>
+                        <tr>
+                            <th style="text-align: center;width:5%">#</th>
+                            <th style="text-align: center;width: 51%">ชื่อ-นามสกุล</th>
+                            <th style="text-align: center;width:15%">จำนวนผลงาน</th>
+                            <th style="text-align: center;width:5%">สาขา</th>
+                            <th style="text-align: center;width:7%">บทบาท</th>
+                            <th style="text-align: center;width:5%">สถานะ</th>
+                            <th style="text-align: center;width:7%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($user as $item)
                             <tr>
-                                <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->id }}</td>
-                                <td style="padding:0px;padding-top:10px;padding-left:10px">{{ $item->name }}</td>
-                                <td style="padding:0px;padding-top:10px;padding-left:10px">{{ $item->email }}</td>
-                                <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->course }}</td>
+                                <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_id }}</td>
+                                <td style="text-align: left;padding:0px;padding-top:10px;padding-left:10px">
+                                    {{ $item->user_fname }}
+                                    {{ $item->user_lname }}</td>
+                                <td style="text-align: center;padding:0px;padding-top:10px;padding-left:0px">
+                                    {{ $item->user_insert_proj }}
+                                </td>
 
-                                <td style="text-align: center;padding:0px;padding-top:5px;padding-bottom:5px">
-                                    <form method="POST" style="margin-bottom: 0%">
-                                        <a href="{{ url('edit-student/' . $item->user_id) }}" class="btn btn-secondary"
-                                            style="width:30px;justify-content:center;padding-left:6px;">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
+                                <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_major }}</td>
+                                <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_role }}</td>
+                                <td style="text-align: center;padding:0px;padding-top:4px;padding-bottom:4px">
+                                    <input data-user_id="{{ $item->user_id }}" class="toggle-class" data-onstyle="success"
+                                        data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive"
+                                        type="checkbox" {{ $item->user_permission ? 'checked' : '' }}>
+                                </td>
+
+                                <td style="padding:0%;padding-top:5px;display:flex;justify-content:center">
+                                    <a class="btn btn-primary edit-tag" data-toggle="modal"
+                                        data-target="#edituser{{ $item->user_id }}" style="width: 30px;height:30px;"><i
+                                            class="fas fa-edit" style="margin-left:-5px"></i></a>
+                                    <form method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button action="{{ url('delete-student/' . $item->user_id) }}" type="submit"
-                                            class="btn btn-danger btn-sm" style="height:30px;width:30px">
+                                        <button action="{{ url('delete-users/' . $item->user_id) }}" type="submit"
+                                            class="btn btn-danger btn-sm" style="height:30px;width:30px;margin-left:5px">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
@@ -495,6 +234,10 @@
         </div>
         <!-- /.card -->
     </div>
+    @include('users.add-modal')
+    @foreach ($user as $item)
+        @include('users.edit-modal', ['item' => $item])
+    @endforeach
 
     <!--Add Project-->
     <div class="container">
@@ -611,7 +354,8 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="box">
-                                        <select class="js-example-tags" multiple="multiple" name="tag" id="pro_type">
+                                        <select class="js-example-tags" multiple="multiple" name="tag"
+                                            id="pro_type">
                                             <option value="" disabled selected>-</option>
                                             <option value="1">Management</option>
                                             <option value="2">Sale</option>
@@ -644,6 +388,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

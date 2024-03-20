@@ -7,6 +7,7 @@ use App\Http\Controllers\MyAuth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MyController;
+use App\Http\Controllers\TagController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,10 +52,10 @@ Route::get('/logout', [MyAuth::class, 'logout_process']);
 Route::post('/login', [MyAuth::class, 'login_process']);
 Route::post('/register', [MyAuth::class, 'register_process']);
 
-Route::resource('titles', C_titles::class)->middleware('auth');
-Route::middleware('auth')->group(function () {
-    // auth first
-});
+// Route::resource('titles', C_titles::class)->middleware('auth');
+// Route::middleware('auth')->group(function () {
+//     // auth first
+// });
 
 Route::get('/my-controller', [MyController::class, 'index']);
 Route::get('/my-controller2', 'App\Http\Controllers\MyController@index');
@@ -69,10 +70,27 @@ Route::get('/', function () {
     return view('welcome'); // welcome.blade.php
 });
 
-Route::get('students',[UserController::class, 'index']);
-Route::get('add-users',[UserController::class, 'create']);
-Route::post('add-users',[UserController::class, 'store']);
-Route::get('edit-student/{id}',[StudentController::class, 'edit']);
-Route::put('update-student/{id}',[StudentController::class, 'update']);
-// Route::get('delete-student/{id}', [StudentController::class, 'destroy']);
-Route::delete('delete-student/{id}', [StudentController::class, 'destroy']);
+// Route::get('students',[UserController::class, 'index'])->middleware('auth');
+// Route::middleware('auth')->group(function () {
+//     // auth first
+// });
+Route::get('users',[UserController::class, 'index'])->name('users')->name('users.index');
+Route::post('users',[UserController::class, 'store'])->name('users.store');
+Route::patch('/users/update/{user_id}', [UserController::class, 'update'])->name('users.update');
+
+Route::get('edit-users/{user_id}',[UserController::class, 'edit']);
+Route::delete('delete-users/{user_id}', [UserController::class, 'destroy']);
+Route::post('changeStatus', [UserController::class, 'changeStatus'])->name('changeStatus');
+
+
+
+
+// Route สำหรับหน้าจัดการป้ายกำกับ
+Route::get('/tags',[TagController::class, 'index']) -> name('tags.index');
+Route::post('/tags',[TagController::class, 'store'])-> name('tags.store');
+Route::patch('/tags/update/{tag_id}', [TagController::class, 'update'])->name('tags.update');
+Route::delete('/tags/{tag_id}',[TagController::class, 'destroy'])-> name('tags.destroy');
+
+
+
+

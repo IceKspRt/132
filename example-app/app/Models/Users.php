@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Users extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'user_id';
+
+    public $timestamps = true;
 
     protected $table = 'oeis_users';
 
@@ -20,6 +23,8 @@ class Users extends Model
         'user_img',
         'user_insert_proj',
         'user_permission',
-        'user_major'
+        'user_major',
+        'created_at',
+        'updated_at'
     ];
 }
