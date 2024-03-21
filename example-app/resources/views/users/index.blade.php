@@ -25,10 +25,10 @@
                     "infoFiltered": "(กรองจากทั้งหมด _MAX_ รายการ)",
                     "zeroRecords": "ไม่พบรายการที่ตรงกับคำค้น",
                     "paginate": {
-                        "first": "หน้าแรก",
-                        "last": "หน้าสุดท้าย",
-                        "next": "ถัดไป",
-                        "previous": "ก่อนหน้า"
+                        "first": "<<",
+                        "last": ">>",
+                        "next": ">",
+                        "previous": "<"
                     }
                 }
             });
@@ -166,10 +166,7 @@
 
     <!--DataTable-->
     <br>
-    <div class="container">
-        <!-- /.card -->
-        <div class="card">
-            <div class="card-body">
+    <div class="container py-2">
                 <div class="row">
                     <div class="col align-self-start" style ="text-align:start">
                         <div class="h2" style="padding-top: 0px; margin-bottom: 0%">ผู้ใช้งาน</div>
@@ -181,7 +178,7 @@
                     </div>
                 </div>
                 <hr>
-                <table id="example1" class="table">
+                <table id="example1" class="table table-bordered table-group-divider ">
                     <thead>
                         <tr>
                             <th style="text-align: center;width:5%">#</th>
@@ -207,7 +204,7 @@
                                 <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_major }}</td>
                                 <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_role }}</td>
                                 <td style="text-align: center;padding:0px;padding-top:4px;padding-bottom:4px">
-                                    <input data-user_id="{{ $item->user_id }}" class="toggle-class" data-onstyle="success"
+                                    <input data-user_id="{{ $item->user_id }}" data-onstyle="success"
                                         data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive"
                                         type="checkbox" {{ $item->user_permission ? 'checked' : '' }}>
                                 </td>
@@ -229,10 +226,7 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
+
     </div>
     @include('users.add-modal')
     @foreach ($user as $item)
@@ -370,7 +364,7 @@
                                         <textarea id="pro_descript" rows="3" maxlength="250"></textarea>
                                         <p id="DescF">คำอธิบายโปรเจกต์</p>
                                     </div>
-
+                                    <input type="checkbox" id="myToggle" data-toggle="toggle" data-on="Active" data-off="Inactive">
                                 </div>
 
                             </div>

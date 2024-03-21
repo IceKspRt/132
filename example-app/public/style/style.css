@@ -294,18 +294,7 @@ tbody {
     /* ทำให้เป็น Cursor Pointer เมื่อผู้ใช้เอาเมาส์ไปชี้ที่ Icon */
 }
 
-#example1 {
-    background-color: #ffffff;
-    /* เปลี่ยนสีตามที่คุณต้องการ */
-}
-
-/* เปลี่ยนสีขอบของตาราง */
-#example1 th {
-    border-color: #585858;
-    border-top-width: 2px;
-    border-bottom-width: 2px;
-    /* เปลี่ยนสีตามที่คุณต้องการ */
-}
+/* <--- Start Style Datable ---> */
 
 
 /* เปลี่ยนสีพื้นหลังของ header ของตาราง */
@@ -316,36 +305,52 @@ tbody {
     /* เปลี่ยนสีตัวอักษรใน header ตามที่คุณต้องการ */
 }
 
+/* ส่วนของ DataTable */
+#example1_wrapper .dataTables_length {
+    /* ตัวเลือกแสดงรายการต่อหน้า */
+    color: black;
+    /* สีข้อความ */
+    font-weight: bold;
+    /* ตัวหนา */
+}
 
-/* ปรับสีขอบของ Pagination */
+#example1_wrapper .dataTables_info {
+    /* ข้อความแสดงจำนวนรายการ */
+    color: black;
+    /* สีข้อความ */
+    font-weight: bold;
+    /* ตัวหนา */
+}
+
 #example1_paginate .paginate_button {
-    border-radius: 20px;
-    margin: 0 2px;
-    /* กำหนดระยะห่างระหว่างปุ่ม */
+    /* ปุ่มเลื่อนหน้า */
+    color: black;
+    /* สีข้อความ */
+    font-weight: bold;
+    /* ตัวหนา */
+}
+
+#example1_paginate .paginate_button.disabled {
+    /* ปุ่มเลื่อนหน้าที่ไม่สามารถใช้งานได้ */
+    color: gray;
+    /* สีข้อความ */
+    font-weight: bold;
+    /* ตัวหนา */
+}
+
+#example1_paginate .paginate_button.current {
+    /* ปุ่มหน้าปัจจุบัน */
+    color: white;
+    /* สีข้อความ */
+    font-weight: bold;
+    /* ตัวหนา */
+    background-color: black;
+    /* สีพื้นหลัง */
 }
 
 
-/* ปรับสีของ Text และ Icon */
-#example1_paginate .paginate_button.current,
-#example1_paginate .paginate_button:hover {
-    color: #fff;
-    /* เปลี่ยนสี Text */
-}
+/* <--- End Style Datable ---> */
 
-/* ปรับขนาดของ Text และ Icon */
-#example1_paginate .paginate_button.current,
-#example1_paginate .paginate_button:hover {
-    font-size: 14px;
-    /* ปรับขนาด Text */
-}
-
-/* ปรับขนาดของ Dropdown แสดงหน้าที่ */
-#example1_paginate .paginate_button .page-link {
-    background-color: rgb(50, 50, 50);
-    color: #ffffff;
-    font-size: 14px;
-    /* ปรับขนาด Text */
-}
 
 /* span.select2-selection.select2-selection--multiple {} */
 
@@ -353,109 +358,17 @@ textarea.select2-search__field {
     border-radius: 0px;
 }
 
-/* switch container style */
-.switch-container {
-    display: flex;
-    align-items: center;
-}
 
-.switch-container>span {
-    color: #232323;
-    padding: 3px;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 28px;
-}
-
-.off-label {
-    margin-right: 10px;
-
-}
-
-.on-label {
-    margin-left: 10px;
-}
-
-/* checkbox - (toggle switch) style */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 48px;
-    height: 32px;
-}
-
-/* hide custom checkbox and apply custom style to make toggle switch */
-.switch input {
-    display: none;
-}
-
-.slider {
-    /* style toggle switch itself */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ff4f4f;
-}
-
-.slider::before {
-    /* style toggle switch knob when OFF */
-    position: absolute;
-    content: "";
-    height: 24px;
-    width: 24px;
-    left: 3px;
-    bottom: 4px;
-    background-color: #cccccc;
-    transition: 0.4s;
-}
 
 .toggle {
-    transform: scale(0.8); /* ลดขนาดของ slider ให้เล็กลง */
+    transform: scale(0.8);
+    /* ลดขนาดของ slider ให้เล็กลง */
 }
 
-input[type="checkbox"]:checked+.slider::before {
-    /* style toggle switch knob when ON */
-    -webkit-transform: translateX(17px);
-    -ms-transform: translateX(17px);
-    transform: translateX(17px);
-}
+/* แสดงเป็นปุ่ม toggle handle โดยใช้คลาส .btn.btn-default */
+.toggle-handle.btn.btn-default {
 
-input[type="checkbox"]:checked+.slider {
-    /* style toggle switch background when ON */
-    background-color: #7dff8e;
-}
-/* apply border-radius to switch */
-.slider.round {
-    border-radius: 34px;
-}
+    background-color: #FFFFFF;
+    /* สีของ toggle handle */
 
-.slider.round::before {
-    border-radius: 50%;
-}
-
-#example1.dataTable tbody tr:nth-child(even) {
-    background-color: #f4f4f4;
-    /* สีพื้นหลังสำหรับแถวคู่ */
-}
-
-#example1.dataTable tbody tr:nth-child(odd) {
-    background-color: #ffffff;
-    /* สีพื้นหลังสำหรับแถวคี่ */
-}
-
-#example1.dataTable {
-    border-collapse: separate; /* เพิ่มเส้นขอบระหว่างเซลล์ */
-    border-spacing: 0; /* ไม่มีระยะห่างระหว่างเซลล์ */
-}
-
-#example1.dataTable th,
-#example1.dataTable td {
-    border-right: 1px solid #000000; /* เส้นขอบด้านขวาของคอลัมน์ */
-}
-
-#example1.dataTable th:last-child,
-#example1.dataTable td:last-child {
-    border-right: none; /* ไม่มีเส้นขอบด้านขวาสุดของคอลัมน์สุดท้าย */
 }
