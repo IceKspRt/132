@@ -80,6 +80,23 @@ class UserController extends Controller
             File::delete($destination);
         }
         $user->delete();
-        return redirect()->back()->with('status', 'Image Deleted Successfully');
+        return redirect()->back()->with('status', 'User Deleted Successfully');
+    }
+
+    public function update(Request $request, $user_id)
+    {
+        $user = Users::find($user_id);
+        $user->user_fname = $request->input('fname');
+        $user->user_lname = $request->input('lname');
+        $user->user_role = $request->input('role');
+        $user->user_major = $request->input('major');
+
+        if ($request->has('password')) {
+            $user->user_password = $request->input('password');
+        }
+
+        $user->update();
+
+        return redirect('http://localhost:8000/users');
     }
 }

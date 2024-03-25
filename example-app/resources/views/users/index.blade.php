@@ -2,7 +2,51 @@
 
 @section('title')
 
-    <link rel="stylesheet" type="text/css" href="{{ url('/style/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/style/style.css') }}" />
+
+@section('sidebar')
+    <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                จัดการผู้ใช้งาน
+            </p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                จัดการโปรเจกต์
+            </p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ url('/tag') }}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                ป้ายกำกับ
+            </p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                จัดการบริษัท
+            </p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                อาจารย์ที่ปรึกษา
+            </p>
+        </a>
+    </li>
+@endsection
 
 @section('content')
 
@@ -161,78 +205,94 @@
 
         });
     </script>
+    <script>
+        // เรียกใช้งาน FilePond
+        FilePond.registerPlugin(
+            FilePondPluginFileEncode,
+            // เพิ่ม plugin อื่นๆตามต้องการ
+        );
+
+        // กำหนดค่าสำหรับ input element ที่มี class เป็น filepond
+        FilePond.setOptions({
+            server: {
+                process: '/upload',
+                revert: '/revert',
+                // กำหนด URL สำหรับการอัปโหลดและย้อนกลับไฟล์ ให้แก้ไขตามต้องการ
+            }
+        });
+
+        // เรียกใช้ FilePond สำหรับ input element ที่มี class เป็น filepond
+        FilePond.parse(document.body);
+    </script>
 
     <!--Javascript-->
 
     <!--DataTable-->
     <br>
-    <div class="container py-2">
-                <div class="row">
-                    <div class="col align-self-start" style ="text-align:start">
-                        <div class="h2" style="padding-top: 0px; margin-bottom: 0%">ผู้ใช้งาน</div>
-                    </div>
-                    <div class="col align-self-end" style ="text-align:right">
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#adduser">เพิ่มผู้ใช้งาน</button>
+    <div class="container py-1">
+        <div class="row">
+            <div class="col align-self-start" style="text-align:start">
+                <div class="h2" style="padding-top: 0px; margin-bottom: 0%">ผู้ใช้งาน</div>
+            </div>
+            <div class="col align-self-end" style="text-align:right">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#adduser">เพิ่มผู้ใช้งาน</button>
+            </div>
+        </div>
+        <hr>
+        <table id="example1" class="table table-bordered table-group-divider table-hover ">
+            <thead>
+                <tr>
+                    <th style="text-align: center;width:5%">#</th>
+                    <th style="text-align: center;width: 51%">ชื่อ-นามสกุล</th>
+                    <th style="text-align: center;width:15%">จำนวนผลงาน</th>
+                    <th style="text-align: center;width:5%">สาขา</th>
+                    <th style="text-align: center;width:7%">บทบาท</th>
+                    <th style="text-align: center;width:5%">สถานะ</th>
+                    <th style="text-align: center;width:7%">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($user as $item)
+                    <tr>
+                        <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_id }}</td>
+                        <td style="text-align: left;padding:0px;padding-top:10px;padding-left:10px">
+                            {{ $item->user_fname }}
+                            {{ $item->user_lname }}</td>
+                        <td style="text-align: center;padding:0px;padding-top:10px;padding-left:0px">
+                            {{ $item->user_insert_proj }}
+                        </td>
 
-                    </div>
-                </div>
-                <hr>
-                <table id="example1" class="table table-bordered table-group-divider ">
-                    <thead>
-                        <tr>
-                            <th style="text-align: center;width:5%">#</th>
-                            <th style="text-align: center;width: 51%">ชื่อ-นามสกุล</th>
-                            <th style="text-align: center;width:15%">จำนวนผลงาน</th>
-                            <th style="text-align: center;width:5%">สาขา</th>
-                            <th style="text-align: center;width:7%">บทบาท</th>
-                            <th style="text-align: center;width:5%">สถานะ</th>
-                            <th style="text-align: center;width:7%">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($user as $item)
-                            <tr>
-                                <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_id }}</td>
-                                <td style="text-align: left;padding:0px;padding-top:10px;padding-left:10px">
-                                    {{ $item->user_fname }}
-                                    {{ $item->user_lname }}</td>
-                                <td style="text-align: center;padding:0px;padding-top:10px;padding-left:0px">
-                                    {{ $item->user_insert_proj }}
-                                </td>
+                        <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_major }}</td>
+                        <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_role }}</td>
+                        <td style="text-align: center;padding:0px;padding-top:4px;padding-bottom:4px">
+                            <input data-user_id="{{ $item->user_id }}" data-onstyle="success" class="toggle-class"
+                                data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive"
+                                type="checkbox" {{ $item->user_permission ? 'checked' : '' }}>
+                        </td>
 
-                                <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_major }}</td>
-                                <td style="text-align: center;padding:0px;padding-top:10px">{{ $item->user_role }}</td>
-                                <td style="text-align: center;padding:0px;padding-top:4px;padding-bottom:4px">
-                                    <input data-user_id="{{ $item->user_id }}" data-onstyle="success"
-                                        data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive"
-                                        type="checkbox" {{ $item->user_permission ? 'checked' : '' }}>
-                                </td>
-
-                                <td style="padding:0%;padding-top:5px;display:flex;justify-content:center">
-                                    <a class="btn btn-primary edit-tag" data-toggle="modal"
-                                        data-target="#edituser{{ $item->user_id }}" style="width: 30px;height:30px;"><i
-                                            class="fas fa-edit" style="margin-left:-5px"></i></a>
-                                    <form method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button action="{{ url('delete-users/' . $item->user_id) }}" type="submit"
-                                            class="btn btn-danger btn-sm" style="height:30px;width:30px;margin-left:5px">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-
+                        <td style="padding:0%;padding-top:5px;display:flex;justify-content:center">
+                            <a class="btn btn-primary edit-" data-bs-toggle="modal"
+                                data-bs-target="#edituser{{ $item->user_id }}" style="width: 30px;height:30px;"><i
+                                    class="fas fa-edit" style="margin-left:-5px"></i></a>
+                            <form method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button action="{{ url('delete-users/' . $item->user_id) }}" type="submit"
+                                    class="btn btn-danger btn-sm" style="height:30px;width:30px;margin-left:5px">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
     @include('users.add-modal')
     @foreach ($user as $item)
         @include('users.edit-modal', ['item' => $item])
     @endforeach
-
     <!--Add Project-->
     <div class="container">
         <div class="row">
@@ -364,7 +424,7 @@
                                         <textarea id="pro_descript" rows="3" maxlength="250"></textarea>
                                         <p id="DescF">คำอธิบายโปรเจกต์</p>
                                     </div>
-                                    <input type="checkbox" id="myToggle" data-toggle="toggle" data-on="Active" data-off="Inactive">
+
                                 </div>
 
                             </div>

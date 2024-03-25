@@ -304,6 +304,12 @@ tbody {
     color: rgb(0, 0, 0);
     /* เปลี่ยนสีตัวอักษรใน header ตามที่คุณต้องการ */
 }
+#example1 tbody {
+    background-color: #ffffff;
+    /* เปลี่ยนสีตามที่คุณต้องการ */
+    color: rgb(0, 0, 0);
+    /* เปลี่ยนสีตัวอักษรใน header ตามที่คุณต้องการ */
+}
 
 /* ส่วนของ DataTable */
 #example1_wrapper .dataTables_length {

@@ -1,5 +1,47 @@
 @extends('layouts.default')
 
+@section('sidebar')
+    <li class="nav-item">
+        <a href="{{ url('/users') }}" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                จัดการผู้ใช้งาน
+            </p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                จัดการโปรเจกต์
+            </p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ url('/tags') }}" class="nav-link active" >
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                ป้ายกำกับ
+            </p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                จัดการบริษัท
+            </p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+                อาจารย์ที่ปรึกษา
+            </p>
+        </a>
+    </li>
+@endsection
 @section('content')
 
     <div class="container">
